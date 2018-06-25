@@ -1,4 +1,4 @@
-var showWord = ['KiwI', 'AppLE', 'oraNgE', 'BAnaNa', 'piNEaPPle'];
+// var showWord = ['KiwI', 'AppLE', 'oraNgE', 'BAnaNa', 'piNEaPPle'];
 
 // function main() {
 
