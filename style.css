@@ -1,0 +1,81 @@
+/* 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.disabled {
+  display: none;
+  pointer-events: none;
+}
+
+.game {
+  background-image: url('http://vvvintagemaps.com/wp-content/uploads/2018/04/photos-of-the-flower-garden-drawing-pencil-sketch.jpg');
+  padding-bottom: 385px;
+}
+
+.container {
+  text-align: center;
+}
+
+ h2 {
+  font-size: 50px;
+}
+
+li {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  list-style: none;
+  padding-bottom: 10px;
+  padding-right: 40px;
+}
+
+.startScreen {
+  display: flex;
+  flex-direction: column;
+}
+
+.appleParent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.apple {
+  width:6em;
+  height:5em;
+  background-color: red;
+  box-shadow: inset 0.2em -0.2em  #cc1022;
+  border-radius: 2em 2em 3em 3em;
+  top: 1em;
+  left:0.3em;
+}
+
+.btnStart button {
+  width: 380px;
+  height: 80px;
+  font-size: 40px;
+  font-family: fantasy;
+  border: none;
+  background: transparent;
+  text-decoration: underline;
+}
+
+#inputForm {
+  width: 450px;
+  height: 60px;
+  background: transparent;
+  font-size: 25px;
+  border-top: transparent;
+  border-right: transparent;
+  border-left: transparent;
+  border-bottom: 3px solid red;
+  border-style: dashed;
+} */
