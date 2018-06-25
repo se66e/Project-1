@@ -1,19 +1,12 @@
-// var showWord = ['KiwI', 'AppLE', 'oraNgE', 'BAnaNa', 'piNEaPPle'];
 
-// function main() {
+function data() {
 
-//   var inputValue = document.getElementById('inputForm').value;
-//   var word = document.getElementById('hardWord p');
-//   var showWord = ['KiwI', 'AppLE', 'oraNgE', 'BAnaNa', 'piNEaPPle'];
-//   var startButton = document.querySelector('.btnStart button');
-//   var startScreen = document.querySelector('.startScreen')
+  var inputValue = document.getElementById('input-form').value;
+  var word = document.querySelector('#display-word p');
+  var getWord = ['KiwI', 'AppLE', 'oraNgE', 'BAnaNa', 'piNEaPPle'];
 
+  function display(word) {
 
+  }
 
-//   startButton.addEventListener('click', function () {
-//     document.removeChild('startScreen');
-
-//   })
-
-
-// }
+}

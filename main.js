@@ -8,7 +8,6 @@ function main() {
 
 
   function buildSplash() {
-    var self = this;
 
     var splashScreenHTML = `<div class="startScreen container">
     <div class="instructions">
@@ -24,41 +23,36 @@ function main() {
     </div>
   </div>`
 
-    var container = document.getElementById('game-container');
+    container = document.getElementById('game-container');
     container.innerHTML = splashScreenHTML;
 
 
     // body.innerHTML = splashScreenHTML;
 
-    var startButton = document.querySelector('.btn-start');
+    startButton = document.querySelector('.btn-start');
     startButton.addEventListener('click', handleStartClick);
-    window.startButton2 = startButton;
   }
 
   function handleStartClick() {
-    startButton2.removeEventListener('click', handleStartClick);
-    startButton2.remove();
-
+    startButton.removeEventListener('click', handleStartClick);
+    startButton.remove();
     buildGame();
   }
 
   function buildGame() {
-    var gameScreenHTML = `<div class="inGame">
-     <div id="hardWord">
+    var gameScreenHTML = `<div class="in-game">
+     <div id="display-word">
        <p></p>
      </div>
-     <div class="inputValue">
-       <input type="" id="inputForm">
-     </div>
-     <div class="displayWord">
-       <p></p>
+     <div class="input-value">
+       <input type="text" id="input-form">
      </div>
    </div>`;
     container.innerHTML = gameScreenHTML;
-
-
-
     playGame();
+  }
+
+  function playGame() {
 
   }
 
