@@ -7,6 +7,7 @@ function main() {
   var body = document.body;
   var game;
   var playBtn;
+  var tryBtn;
 
 
   function buildSplash() {
@@ -44,7 +45,7 @@ function main() {
   function buildGame() {
     var gameScreenHTML = `<div class="in-game">
     <div id="timer">
-    <p id="timer-count">00:10</p>
+    <p id="timer-count">10</p>
     </div>
     <div id="btn-display-word">
     <button>Let's start</buttton>
@@ -54,6 +55,9 @@ function main() {
     </div>
      <div class="input-value">
        <input type="text" id="input-form">
+       <div id="submit">
+        <button>try it</button>
+       </div>
      </div>
    </div>`;
     container.innerHTML = gameScreenHTML;
@@ -75,11 +79,21 @@ function main() {
     // listning keyboard keys
     // starts timer to type word
     // check if written word is correct
+    tryBtn = document.getElementById('submit');
+    tryBtn.addEventListener('click', handleTryClick)
     game = new Game();
     game.getRandomWord();
     game.secondsTimer();
     game.start();
     game.getRandomWord();
+  }
+
+  function handleTryClick() {
+    inputWord();
+  }
+
+  function inputWord() {
+    game.checkWord();
   }
 
   function endGame() {

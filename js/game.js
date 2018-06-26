@@ -25,7 +25,7 @@ Game.prototype.getRandomWord = function () {
 Game.prototype.secondsTimer = function () {
   time = 9;
   var timerCount = setInterval(function () {
-    var secondsTimer = document.getElementById('timer-count').innerText = '00:' + time;
+    var secondsTimer = document.getElementById('timer-count').innerText = time;
     time--;
     if (time < 0) {
       clearInterval(timerCount);
@@ -33,6 +33,22 @@ Game.prototype.secondsTimer = function () {
   }, 1000)
 }
 
+Game.prototype.clearWord = function () {
+  if (time <= 0) {
+    document.querySelector('#random-word p').remove;
+  }
+}
+
+Game.prototype.checkWord = function () {
+  var input = document.querySelector('input').value;
+  var ranWord = document.querySelector('#random-word p').innerText;
+  if (Object.is(input, ranWord)) {
+    console.log(true);
+    this.getRandomWord();
+  } else {
+    console.log(false)
+  }
+}
 
 
 
