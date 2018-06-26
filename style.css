@@ -76,13 +76,24 @@ button {
   border-top: transparent;
   border-right: transparent;
   border-left: transparent;
-  border-bottom: 3px solid red;
+  border-bottom: 3px solid brown;
   border-style: dashed;
+  align-content: center;
 }
 
 #timer-count {
-  font-size: 25px;
+  font-size: 50px;
   padding-top: 40px;
-  padding-left: 20px;
+  padding-right: 40px;
   color: red;
+  font-style: oblique;
+  text-align: right;
+}
+
+
+
+#random-word p {
+  font-size: 25px;
+  text-align: center;
+  
 }

@@ -49,7 +49,7 @@ function main() {
     <div id="btn-display-word">
     <button>Let's start</buttton>
     </div>
-    <div id="random-word"
+    <div id="random-word">
        <p></p>
     </div>
      <div class="input-value">
@@ -75,11 +75,11 @@ function main() {
     // listning keyboard keys
     // starts timer to type word
     // check if written word is correct
+    game = new Game();
     game.getRandomWord();
     game.secondsTimer();
-    game = new Game();
     game.start();
-
+    game.getRandomWord();
   }
 
   function endGame() {
