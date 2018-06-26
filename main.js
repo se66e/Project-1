@@ -41,19 +41,32 @@ function main() {
 
   function buildGame() {
     var gameScreenHTML = `<div class="in-game">
+    <div id="timer">
+    <p id="timer-count">00:10</p>
+    </div>
+    <div id="btn-display-word">
+    <button>Let's start</buttton>
+    </div>
+
      <div id="display-word">
-       <p></p>
+       <p id="random-word"></p>
      </div>
      <div class="input-value">
        <input type="text" id="input-form">
      </div>
    </div>`;
     container.innerHTML = gameScreenHTML;
-    playGame();
+    var playBtn = document.getElementById('btn-display-word');
+    playBtn.addEventListener('click', handlePlayClick)
+    window.playBtn2 = playBtn
   }
 
-  function playGame() {
-
+  function handlePlayClick() {
+    // game = new Game(gameScreenHTML, endGame);
+    playBtn2.removeEventListener('click', handlePlayClick);
+    playBtn2.remove();
+    game();
+    secondsTimer();
   }
 
   buildSplash();
