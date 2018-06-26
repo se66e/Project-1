@@ -5,6 +5,8 @@ function main() {
   var startButton;
   var container;
   var body = document.body;
+  var game;
+  var playBtn;
 
 
   function buildSplash() {
@@ -47,49 +49,56 @@ function main() {
     <div id="btn-display-word">
     <button>Let's start</buttton>
     </div>
-
-     <div id="display-word">
-       <p id="random-word"></p>
-     </div>
+    <div id="random-word"
+       <p></p>
+    </div>
      <div class="input-value">
        <input type="text" id="input-form">
      </div>
    </div>`;
     container.innerHTML = gameScreenHTML;
-    var playBtn = document.getElementById('btn-display-word');
-    playBtn.addEventListener('click', handlePlayClick)
-    window.playBtn2 = playBtn
+    playBtn = document.getElementById('btn-display-word');
+    playBtn.addEventListener('click', handlePlayClick);
   }
 
-  function handlePlayClick() {
-    // game = new Game(gameScreenHTML, endGame);
-    playBtn2.removeEventListener('click', handlePlayClick);
-    playBtn2.remove();
-    game();
-    secondsTimer();
+  function handlePlayClick(event) {
+    playBtn.removeEventListener('click', handlePlayClick);
+    playBtn.remove();
+    playGame();
   }
+
+  function playGame() {
+    // word appears
+    // timer starts
+    // after 10 seconds
+    // word disapears
+    // listning keyboard keys
+    // starts timer to type word
+    // check if written word is correct
+    game.getRandomWord();
+    game.secondsTimer();
+    game = new Game();
+    game.start();
+
+  }
+
+  function endGame() {
+    gameScreenHTML.remove();
+    game = null;
+    buildRestartGame();
+  }
+
+  function buildRestartGame() {
+    var restartGameScreenHTML = `<div class="restart">
+    <button id="restart-game">TrY aGaIn</button>
+    </div>
+    `
+  }
+
+
 
   buildSplash();
 
 }
 
 window.addEventListener('load', main)
-
-
-
-
-
-
-
-  // var container = document.getElementById('game-container');
-  // container.innerHTML = splashScreenHTML;
-
-  // var body = document.body;
-  // var game = document.querySelector('.game');
-  // game.innerHTML = splashScreenHTML;
-  // // var splashContainer = document.createElement('div');
-  // body.appendChild('splashScreenHTML');
-  // var startButton = body.querySelector('button');
-
-  // startButton.addEventListener('click', handleStartClick);
-  // }

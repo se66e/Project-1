@@ -1,39 +1,28 @@
+'use strict'
 
-// function correctWord() {
-//   if (inputValue = word) {
-//     nextWord();
-//   } else if (inputValue != showWord) {
-//     restartScreen();
-//   }
-// }
-
-// function nextWord() {
-
-// }
-
-// var inputValue = document.getElementById('input-form').value;
+function Game() {
 
 
-function game() {
-
-  var word = document.getElementById('random-word');
-  var inputValue = document.getElementById('input-form');
-  getRandomWord();
-
-  function getRandomWord() {
-    var getWord = words[Math.floor(Math.random() * words.length)];
-    word.innerText = getWord;
-  }
-
-  // function rightWord () {
-  //   if (getWord = inputValue) {
-  //     nextWord();
-  //   }
-  // }
 
 }
 
-function secondsTimer() {
+Game.prototype.start = function () {
+  //clear screen
+}
+
+Game.prototype.getRandomWord = function () {
+  var getWord = words[Math.floor(Math.random() * words.length)];
+  console.log(getWord);
+  return getWord;
+}
+
+
+var word = document.querySelector('#random-word p').innerText;
+var inputValue = document.querySelector('input').value;
+
+
+
+Game.prototype.secondsTimer = function () {
   var time = 9;
   var timerCount = setInterval(function () {
     var secondsTimer = document.getElementById('timer-count').innerText = '00:' + time;
@@ -44,4 +33,12 @@ function secondsTimer() {
   }, 1000)
 }
 
-window.addEventListener('load', game)
+// function rightWord () {
+//   if (word = inputValue && time > 0) {
+//     // nextWord ();
+//   } else if (word != inputValue || time < 0) {
+//     // restartScreen();
+//   }
+// }
+
+// function nextWord 

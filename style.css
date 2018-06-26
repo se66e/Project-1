@@ -1,4 +1,4 @@
-/* 
+
 html {
   box-sizing: border-box;
 }
@@ -58,7 +58,7 @@ li {
   left:0.3em;
 }
 
-.btnStart button {
+button {
   width: 380px;
   height: 80px;
   font-size: 40px;
@@ -68,7 +68,7 @@ li {
   text-decoration: underline;
 }
 
-#inputForm {
+#input-form {
   width: 450px;
   height: 60px;
   background: transparent;
@@ -78,4 +78,11 @@ li {
   border-left: transparent;
   border-bottom: 3px solid red;
   border-style: dashed;
-} */
+}
+
+#timer-count {
+  font-size: 25px;
+  padding-top: 40px;
+  padding-left: 20px;
+  color: red;
+}
