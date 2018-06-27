@@ -88,11 +88,12 @@ function main() {
 
 
   function endGame() {
-    gameScreenHTML.remove();
-    game = null;
-    buildRestartGame();
+    if (game.isEnded = true) {
+      gameScreenHTML.remove();
+      game = null;
+      buildRestartGame();
+    }
   }
-
   function buildRestartGame() {
     var restartGameScreenHTML = `<div class="restart">
     <button id="restart-game">TrY aGaIn</button>
