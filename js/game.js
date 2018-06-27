@@ -58,12 +58,14 @@ Game.prototype.ifCorrect = function () {
     newDiv.appendChild(newTextNode);
     appendTo.appendChild(newDiv);
     window.setTimeout(function () {
+      appendTo.removeChild(newDiv);
       var input = document.querySelector('.input-value');
       input.classList.add('disabled');
       var wordContainer = document.querySelector('#random-word p');
-      wordContainer.classList.remove('disabled');
+      removeDisabled(wordContainer);
       self.start();
       clearInterval(self.intervalId2);
+      input = "";
     }, 2000);
     console.log(true);
   }
@@ -74,10 +76,19 @@ Game.prototype.ifCorrect = function () {
     newDiv2.appendChild(newTextNode2);
     appendTo1.appendChild(newDiv2);
     window.setTimeout(function () {
+      appendTo1.removeChild(newDiv2);
       self.isEnded = true;
     }, 2000);
     console.log(false);
   }
+}
+
+function removeDisabled(element) {
+  element.classList.remove('disabled');
+}
+
+function addDisabled(element) {
+  element.classList.add('disabled')
 }
 
 // Game.prototype.isDisabled = function () {
