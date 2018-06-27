@@ -9,8 +9,8 @@ function Game(endGame) {
 function game() {
 
   var word = document.getElementById('random-word');
-  // var inputValue = document.querySelector('input').value;
-  // console.log(inputValue);
+  var inputValue = document.querySelector('input').value;
+  console.log(inputValue);
   getRandomWord();
 
   var getWord;
@@ -43,3 +43,11 @@ function secondsTimer() {
 }
 
 window.addEventListener('load', game)
+
+
+Game.prototype.clearWord = function () {
+  if (time <= 0) {
+    var ranWord = document.getElementById('random-word');
+    ranWord.className += " disabled";
+  }
+}

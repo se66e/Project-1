@@ -97,3 +97,17 @@ button {
   text-align: center;
   
 }
+
+.lastDiv {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: green;
+  font-size: 30px;
+  margin-top: 30px;
+}
+
+.lastDiv section {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: red;
+  font-size: 30px;
+  margin-top: 30px;
+}

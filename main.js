@@ -9,6 +9,7 @@ function main() {
   var playBtn;
   var tryBtn;
 
+  // ------------ SPLASH SCREEN ------------ //  
 
   function buildSplash() {
 
@@ -42,36 +43,33 @@ function main() {
     buildGame();
   }
 
+  // ------------ GAME SCREEN ------------ //
+
   function buildGame() {
     var gameScreenHTML = `<div class="in-game">
     <div id="timer">
     <p id="timer-count">10</p>
     </div>
-    <div id="btn-display-word">
-    <button>Let's start</buttton>
-    </div>
+    <div class="toggle-remove">
     <div id="random-word" class="">
        <p></p>
+    </div>
     </div>
      <div class="input-value disabled">
        <input type="text" id="input-form">
        <div id="submit">
         <button>try it</button>
+        <div class="lastDiv">
+        </div>
        </div>
      </div>
    </div>`;
     container.innerHTML = gameScreenHTML;
-    playBtn = document.getElementById('btn-display-word');
-    playBtn.addEventListener('click', handlePlayClick);
-  }
-
-  function handlePlayClick(event) {
-    playBtn.removeEventListener('click', handlePlayClick);
-    playBtn.remove();
     playGame();
   }
 
   function playGame() {
+    game = new Game();
     // word appears
     // timer starts
     // after 10 seconds
@@ -81,19 +79,13 @@ function main() {
     // check if written word is correct
     tryBtn = document.getElementById('submit');
     tryBtn.addEventListener('click', handleTryClick);
-    game = new Game();
-    game.getRandomWord();
-    game.secondsTimer();
-    game.start();
+    game.clearWord();
   }
 
   function handleTryClick() {
-    checkIfCorrect();
+    game.ifCorrect();
   }
 
-  function checkIfCorrect() {
-    game.checkWord();
-  }
 
   function endGame() {
     gameScreenHTML.remove();
