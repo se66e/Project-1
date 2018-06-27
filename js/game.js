@@ -1,7 +1,8 @@
 'use strict'
 
 var time;
-
+var word;
+var input;
 function Game() {
 
 
@@ -16,10 +17,34 @@ Game.prototype.start = function () {
 
 
 Game.prototype.getRandomWord = function () {
-  var word = document.querySelector('#random-word p');
+  word = document.querySelector('#random-word p');
   var getWord = words[Math.floor(Math.random() * words.length)];
   word.innerText = getWord;
-  return getWord;
+  clearWord();
+  inputWord();
+}
+
+function clearWord() {
+  window.setTimeout(function () {
+    word.classList.add('disabled');
+  }, 10000);
+}
+
+function inputWord() {
+  input = document.querySelector('.disabled');
+  window.setTimeout(function () {
+    input.classList.remove('disabled');
+  }, 10000);
+}
+
+function ifCorrect() {
+  if (Object.is(input, ranWord)) {
+    getRandomWord();
+    inputWord();
+    secondsTimer();
+  } else {
+
+  }
 }
 
 Game.prototype.secondsTimer = function () {
@@ -33,18 +58,13 @@ Game.prototype.secondsTimer = function () {
   }, 1000)
 }
 
-Game.prototype.clearWord = function () {
-  if (time <= 0) {
-    document.querySelector('#random-word p').remove;
-  }
-}
-
 Game.prototype.checkWord = function () {
   var input = document.querySelector('input').value;
   var ranWord = document.querySelector('#random-word p').innerText;
   if (Object.is(input, ranWord)) {
     console.log(true);
     this.getRandomWord();
+
   } else {
     console.log(false)
   }
@@ -52,5 +72,7 @@ Game.prototype.checkWord = function () {
 
 
 
-// function nextWord 
+
+
+
 

@@ -50,10 +50,10 @@ function main() {
     <div id="btn-display-word">
     <button>Let's start</buttton>
     </div>
-    <div id="random-word">
+    <div id="random-word" class="">
        <p></p>
     </div>
-     <div class="input-value">
+     <div class="input-value disabled">
        <input type="text" id="input-form">
        <div id="submit">
         <button>try it</button>
@@ -80,19 +80,18 @@ function main() {
     // starts timer to type word
     // check if written word is correct
     tryBtn = document.getElementById('submit');
-    tryBtn.addEventListener('click', handleTryClick)
+    tryBtn.addEventListener('click', handleTryClick);
     game = new Game();
     game.getRandomWord();
     game.secondsTimer();
     game.start();
-    game.getRandomWord();
   }
 
   function handleTryClick() {
-    inputWord();
+    checkIfCorrect();
   }
 
-  function inputWord() {
+  function checkIfCorrect() {
     game.checkWord();
   }
 
