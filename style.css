@@ -18,7 +18,8 @@ body {
 
 .game {
   background-image: url('http://vvvintagemaps.com/wp-content/uploads/2018/04/photos-of-the-flower-garden-drawing-pencil-sketch.jpg');
-  padding-bottom: 385px;
+  padding-bottom: 485px;
+  
 }
 
 .container {
@@ -113,5 +114,9 @@ button {
 }
 
 .input-value {
+  text-align: center;
+}
+
+#restart-game {
   text-align: center;
 }

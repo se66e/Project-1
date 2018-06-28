@@ -8,6 +8,8 @@ function main() {
   var game;
   var playBtn;
   var tryBtn;
+  var gameScreenHTML;
+  var restartBtn;
 
   // ------------ SPLASH SCREEN ------------ //  
 
@@ -29,10 +31,6 @@ function main() {
 
     container = document.getElementById('game-container');
     container.innerHTML = splashScreenHTML;
-
-
-    // body.innerHTML = splashScreenHTML;
-
     startButton = document.querySelector('.btn-start');
     startButton.addEventListener('click', handleStartClick);
   }
@@ -46,7 +44,7 @@ function main() {
   // ------------ GAME SCREEN ------------ //
 
   function buildGame() {
-    var gameScreenHTML = `<div class="in-game">
+    gameScreenHTML = `<div class="in-game">
     <div id="timer">
     <p id="timer-count">10</p>
     </div>
@@ -61,6 +59,12 @@ function main() {
         <button>try it</button>
         <div class="lastDiv">
         </div>
+        <div class="score-box">
+        <h4>Your score is:</h4>
+        <div class="score">
+        0
+        </div>
+        </div>
        </div>
      </div>
    </div>`;
@@ -69,7 +73,7 @@ function main() {
   }
 
   function playGame() {
-    game = new Game();
+    game = new Game(endGame);
     // word appears
     // timer starts
     // after 10 seconds
@@ -88,20 +92,38 @@ function main() {
 
 
   function endGame() {
-    if (game.isEnded = true) {
-      gameScreenHTML.remove();
-      game = null;
-      buildRestartGame();
-    }
+    console.log('ended')
+    // if (game.isEnded = true) {
+    // container.innerHTML = null;
+    game = null;
+    buildRestartGame();
+    // }
+
+    // ------------ RESTART SCREEN ------------ //
+
   }
   function buildRestartGame() {
-    var restartGameScreenHTML = `<div class="restart">
+    container.innerHTML = `<div class="restart">
+    <div class="restart-button">
     <button id="restart-game">TrY aGaIn</button>
     </div>
-    `
+    <div class="score-box-no2">
+    <h4>You scored:</h4>
+    </div>
+    <div class="score">
+    0
+    </div>
+    </div>`
+
+    restartBtn = document.querySelector('#restart-game');
+    restartBtn.addEventListener('click', handleRestartClick);
   }
 
-
+  function handleRestartClick() {
+    restartBtn.removeEventListener('click', handleRestartClick);
+    restartBtn.remove();
+    game = buildSplash();
+  }
 
   buildSplash();
 

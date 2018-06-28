@@ -1,15 +1,27 @@
+
 'use strict'
 
-function Game() {
+function Game(cb) {
+  this.callback = cb
+
   this.time = 9;
   this.answerTimer = 10;
   this.word = "";
   this.input = "";
-  this.words = ['KiwI', 'AppLE', 'oraNgE', 'BAnaNa', 'piNEaPPle', 'pUmpKIN', 'CoCONut', 'APRicot', 'ManGO'];
+  this.words = ['AppLE', 'oraNgE', 'BAnaNa', 'piNEaPPle', 'pUmpKIN', 'CoCONut', 'APRicot', 'ManGO'];
   this.intervalId = 0;
   this.intervalId2 = 0;
+  this.score = 0;
   this.isEnded = false;
   this.start();
+}
+
+Game.prototype.checkIfEnded = function () {
+  var self = this;
+  if (self.isEnded === true) {
+    clearInterval(self.intervalId);
+    self.callback();
+  }
 }
 
 Game.prototype.start = function () {
@@ -37,11 +49,12 @@ Game.prototype.inputWord = function () {
   input.classList.remove('disabled');
   var answerTimer = 10;
   self.intervalId2 = setInterval(function () {
-    var someTimer = document.getElementById('timer-count').innerText = answerTimer;
+    var inputTimer = document.getElementById('timer-count').innerText = answerTimer;
     answerTimer -= 1;
     if (answerTimer < 0) {
       clearInterval(self.intervalId2);
-      this.isEnded = true;
+      self.isEnded = true;
+      self.checkIfEnded();
     }
   }, 1000)
 }
@@ -68,12 +81,15 @@ Game.prototype.ifCorrect = function () {
     }, 2000);
     console.log(true)
 
-  } if (Object.is(input, ranWord)) {
+  }
+
+  if (Object.is(input, ranWord)) {
     window.setTimeout(function () {
       var wordContainer = document.querySelector('#random-word p');
       wordContainer.classList.add('disabled');
     }, 12000)
   }
+
   else {
     var appendTo1 = document.querySelector('.lastDiv');
     var newDiv2 = document.createElement('div');
@@ -81,39 +97,14 @@ Game.prototype.ifCorrect = function () {
     newDiv2.appendChild(newTextNode2);
     appendTo1.appendChild(newDiv2);
     window.setTimeout(function () {
+      clearInterval(self.intervalId2);
       appendTo1.removeChild(newDiv2);
       self.isEnded = true;
+      self.checkIfEnded();
     }, 2000);
     console.log(false);
   }
 }
-
-
-
-
-
-
-
-function removeDisabled(element) {
-  element.classList.remove('disabled');
-}
-
-function addDisabled(element) {
-  element.classList.add('disabled')
-}
-
-// Game.prototype.isDisabled = function () {
-//   window.setTimeout(function () {
-//     var input = document.querySelector('.input-value');
-//     var wordContainer = document.querySelector('#random-word p');
-//     if (input.className = 'disabled') {
-//       wordContainer.className != 'disabled'
-//     }
-//   }, 2000);
-
-
-// }
-
 Game.prototype.secondsTimer = function () {
   // time = 9;
   var self = this
@@ -128,23 +119,8 @@ Game.prototype.secondsTimer = function () {
   }, 1000)
 }
 
-// Game.prototype.inputWord = function () {
-//   var self = this;
-//   var input = document.querySelector('.input-value');
-//   input.classList.remove('disabled');
-//   this.intervalId = setInterval(function () {
-//     var secondsTimer = document.getElementById('timer-count').innerText = self.answerTimer;
-//     answerTimer -= 1;
-//     if (answerTimer < 0) {
-//       clearInterval(intervalId);
-//       this.isEnded = true;
-//     }
-//   }, 1000)
-// }
-
-
-
-
-
-
-
+Game.prototype.score = function () {
+  var self = this;
+  var getScore = document.querySelector('score');
+  getScore.value = self.score++
+}
