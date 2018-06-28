@@ -21,7 +21,6 @@ function main() {
       <ul>
         <li>Capital letters matter</li>
         <li>The word to repeat disappears when the timer reaches 0, and you get another 10 seconds to enter the word</li>
-        <li>Once you start typing, the timer starts and the word to repeat disappears</li>
       </ul>
     </div>
     <div class="btn-start">
