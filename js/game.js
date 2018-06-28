@@ -3,17 +3,18 @@
 
 function Game(cb) {
   this.callback = cb
-
   this.time = 9;
   this.answerTimer = 10;
   this.word = "";
   this.input = "";
-  this.words = ['AppLE', 'oraNgE', 'BAnaNa', 'piNEaPPle', 'pUmpKIN', 'CoCONut', 'APRicot', 'ManGO'];
+  this.ranWord = "";
+  this.words = ['AppLE', 'oraNgE', 'BAnaNa', 'piNEaPPle', 'pUmpKIN', 'CoCONut', 'APRicot', 'clEmeNTine', 'GRApefRuiT', 'PaPayA', 'rhUbARb', 'raSbERry', 'stRaWBErRy', 'WatERMelOn', 'AvoCAdO', 'bLUebErRy', 'kIwiFRuiT'];
   this.intervalId = 0;
   this.intervalId2 = 0;
   this.score = 0;
   this.isEnded = false;
   this.start();
+
 }
 
 Game.prototype.checkIfEnded = function () {
@@ -65,6 +66,7 @@ Game.prototype.ifCorrect = function () {
   var ranWord = document.querySelector('#random-word p').innerText;
 
   if (Object.is(input, ranWord)) {
+    self.raiseScore();
     var appendTo = document.querySelector('.lastDiv');
     var newDiv = document.createElement('div');
     var newTextNode = document.createTextNode('You are correct!');
@@ -80,17 +82,14 @@ Game.prototype.ifCorrect = function () {
       clearInterval(self.intervalId2);
     }, 2000);
     console.log(true)
-
   }
-
   if (Object.is(input, ranWord)) {
     window.setTimeout(function () {
       var wordContainer = document.querySelector('#random-word p');
       wordContainer.classList.add('disabled');
     }, 12000)
-  }
 
-  else {
+  } else {
     var appendTo1 = document.querySelector('.lastDiv');
     var newDiv2 = document.createElement('div');
     var newTextNode2 = document.createTextNode('You are Incorrect!');
@@ -106,7 +105,6 @@ Game.prototype.ifCorrect = function () {
   }
 }
 Game.prototype.secondsTimer = function () {
-  // time = 9;
   var self = this
   this.intervalId = setInterval(function () {
     var secondsTimer = document.getElementById('timer-count').innerText = self.time;
@@ -119,8 +117,9 @@ Game.prototype.secondsTimer = function () {
   }, 1000)
 }
 
-Game.prototype.score = function () {
+Game.prototype.raiseScore = function () {
   var self = this;
-  var getScore = document.querySelector('score');
-  getScore.value = self.score++
+  var scoreNode = document.querySelector('.score');
+  self.score++;
+  scoreNode.innerText = self.score;
 }

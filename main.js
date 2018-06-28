@@ -48,7 +48,7 @@ function main() {
     <div id="timer">
     <p id="timer-count">10</p>
     </div>
-    <div id="random-word" class="random-words1">
+    <div id="random-word" class="hide">
        <p></p>
     </div>
     <div class="append-to">
@@ -122,6 +122,7 @@ function main() {
   function handleRestartClick() {
     restartBtn.removeEventListener('click', handleRestartClick);
     restartBtn.remove();
+    container.innerHTML = null;
     game = buildSplash();
   }
 
