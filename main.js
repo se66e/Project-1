@@ -110,8 +110,8 @@ function main() {
     <div class="score-box-no2">
     <h4>You scored:</h4>
     </div>
-    <div class="score">
-    0
+    <div class="final-score">
+    
     </div>
     </div>`
 

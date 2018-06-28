@@ -1,4 +1,5 @@
 
+
 'use strict'
 
 function Game(cb) {
@@ -12,6 +13,7 @@ function Game(cb) {
   this.intervalId = 0;
   this.intervalId2 = 0;
   this.score = 0;
+  this.scoreNode = 0;
   this.isEnded = false;
   this.start();
 
@@ -56,6 +58,7 @@ Game.prototype.inputWord = function () {
       clearInterval(self.intervalId2);
       self.isEnded = true;
       self.checkIfEnded();
+      self.finalScore();
     }
   }, 1000)
 }
@@ -91,7 +94,7 @@ Game.prototype.ifCorrect = function () {
 
   } else {
     var appendTo1 = document.querySelector('.lastDiv');
-    var newDiv2 = document.createElement('div');
+    var newDiv2 = document.createElement('section');
     var newTextNode2 = document.createTextNode('You are Incorrect!');
     newDiv2.appendChild(newTextNode2);
     appendTo1.appendChild(newDiv2);
@@ -100,6 +103,7 @@ Game.prototype.ifCorrect = function () {
       appendTo1.removeChild(newDiv2);
       self.isEnded = true;
       self.checkIfEnded();
+      self.finalScore();
     }, 2000);
     console.log(false);
   }
@@ -119,7 +123,13 @@ Game.prototype.secondsTimer = function () {
 
 Game.prototype.raiseScore = function () {
   var self = this;
-  var scoreNode = document.querySelector('.score');
+  self.scoreNode = document.querySelector('.score');
   self.score++;
-  scoreNode.innerText = self.score;
+  self.scoreNode.innerText = self.score;
+}
+
+Game.prototype.finalScore = function () {
+  var self = this;
+  var scoreFinal = document.querySelector('.final-score')
+  scoreFinal.innerText = self.score;
 }
