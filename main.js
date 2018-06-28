@@ -50,10 +50,10 @@ function main() {
     <div id="timer">
     <p id="timer-count">10</p>
     </div>
-    <div class="toggle-remove">
-    <div id="random-word" class="">
+    <div id="random-word" class="random-words1">
        <p></p>
     </div>
+    <div class="append-to">
     </div>
      <div class="input-value disabled">
        <input type="text" id="input-form">

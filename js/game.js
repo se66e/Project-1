@@ -62,12 +62,17 @@ Game.prototype.ifCorrect = function () {
       var input = document.querySelector('.input-value');
       input.classList.add('disabled');
       var wordContainer = document.querySelector('#random-word p');
-      removeDisabled(wordContainer);
+      wordContainer.classList.remove('disabled');
       self.start();
       clearInterval(self.intervalId2);
-      input = "";
     }, 2000);
-    console.log(true);
+    console.log(true)
+
+  } if (Object.is(input, ranWord)) {
+    window.setTimeout(function () {
+      var wordContainer = document.querySelector('#random-word p');
+      wordContainer.classList.add('disabled');
+    }, 12000)
   }
   else {
     var appendTo1 = document.querySelector('.lastDiv');
@@ -82,6 +87,12 @@ Game.prototype.ifCorrect = function () {
     console.log(false);
   }
 }
+
+
+
+
+
+
 
 function removeDisabled(element) {
   element.classList.remove('disabled');
