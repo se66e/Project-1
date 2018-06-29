@@ -50,7 +50,7 @@ Game.prototype.inputWord = function () {
   var self = this;
   var input = document.querySelector('.input-value');
   input.classList.remove('disabled');
-  var answerTimer = 10;
+  var answerTimer = 15;
   self.intervalId2 = setInterval(function () {
     var inputTimer = document.getElementById('timer-count').innerText = answerTimer;
     answerTimer -= 1;
@@ -67,6 +67,8 @@ Game.prototype.ifCorrect = function () {
   var self = this;
   var input = document.querySelector('input').value;
   var ranWord = document.querySelector('#random-word p').innerText;
+
+  // Sorry about the massive if statement :/
 
   if (Object.is(input, ranWord)) {
     self.raiseScore();
